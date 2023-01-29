@@ -1,9 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <GL/glfw.h>
+#include <GLFW/glfw3.h>
+#include <GL/glu.h>
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
+#include "window.h"
 
 float rotationX, rotationY, rotationZ;
 GLuint textures[1];
@@ -42,7 +45,7 @@ void initGlScene() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     
-    glfwGetWindowSize(&sceneWidth, &sceneHeight);
+    glfwGetFramebufferSize(gGlfwWindow, &sceneWidth, &sceneHeight);
     gluPerspective(45.0f, (GLfloat)sceneWidth / (GLfloat)sceneHeight, 0.1f, 100.0f);
 
     glMatrixMode(GL_MODELVIEW);
