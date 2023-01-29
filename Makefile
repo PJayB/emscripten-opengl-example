@@ -4,7 +4,7 @@ build/native/qafoo: src/qafoo.c src/native.c src/rendering.c
 	if uname -a | grep -q "Darwin"; then \
 		gcc $^ -lglfw -lsdl -lsdl_image -framework OpenGl -o build/native/qafoo; \
 	else \
-		gcc $^ -lglfw -lSDL -lSDL_image -lGL -lGLU -o build/native/qafoo; \
+		gcc $^ -g -O0 -lglfw -lSDL -lSDL_image -lGL -lGLU -o build/native/qafoo; \
 	fi
 
 build/js/qafoo.js build/js/qafoo.data: src/qafoo.c src/js.c src/rendering.c
